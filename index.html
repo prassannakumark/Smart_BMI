@@ -49,7 +49,7 @@
     </div>
 
     <script>
-        const mqttClient = mqtt.connect('ws://broker.emqx.io:8083/mqtt');
+        const mqttClient = mqtt.connect('wss://broker.emqx.io:8083/mqtt');
         let latestHeight = null;
         let latestWeight = null;
         let isMqttConnected = false;
@@ -187,3 +187,4 @@
     </script>
 </body>
 </html>
+
