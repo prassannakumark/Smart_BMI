@@ -1,3 +1,5 @@
+// Detect if running on Vercel (no writable filesystem)
+const isVercel = process.env.VERCEL === '1';
 const express = require('express');
 const XLSX = require('xlsx');
 const fs = require('fs');
@@ -33,6 +35,9 @@ if (!fs.existsSync(filePath)) {
 }
 
 app.post('/save-bmi', (req, res) => {
+    if (isVercel) {
+    return res.json({ success: true, message: "Vercel environment: data mock-saved successfully" });
+  }
     try {
         const { date, name, age, height, weight, bmi } = req.body;
 
@@ -103,4 +108,5 @@ app.use(express.static(__dirname));
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
+
 });
