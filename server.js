@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // Specify your local file path for the Excel file
-const filePath = 'K:\\smart_bmi-main\\bmi_data.xlsx';
+const filePath = 'C:\\smart_bmi-main\\bmi_data.xlsx';
 console.log(`Using file path: ${filePath}`);
 
 // Ensure the directory exists
@@ -110,3 +110,4 @@ app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 
 });
+
